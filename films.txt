@@ -1,0 +1,65 @@
+Inception,2010,Sci-Fi,Christopher Nolan,Leonardo DiCaprio,Joseph Gordon-Levitt,Elliot Page
+The Dark Knight,2008,Action,Christopher Nolan,Christian Bale,Heath Ledger,Aaron Eckhart
+Pulp Fiction,1994,Crime,Quentin Tarantino,John Travolta,Uma Thurman,Samuel L. Jackson
+The Godfather,1972,Crime,Francis Ford Coppola,Marlon Brando,Al Pacino,James Caan
+The Shawshank Redemption,1994,Drama,Frank Darabont,Tim Robbins,Morgan Freeman,Bob Gunton
+Forrest Gump,1994,Drama,Robert Zemeckis,Tom Hanks,Robin Wright,Gary Sinise
+The Matrix,1999,Sci-Fi,Lana Wachowski,Keanu Reeves,Laurence Fishburne,Carrie-Anne Moss
+Fight Club,1999,Drama,David Fincher,Brad Pitt,Edward Norton,Helena Bonham Carter
+Titanic,1997,Romance,James Cameron,Leonardo DiCaprio,Kate Winslet,Billy Zane
+Gladiator,2000,Action,Ridley Scott,Russell Crowe,Joaquin Phoenix,Connie Nielsen
+Avatar,2009,Sci-Fi,James Cameron,Sam Worthington,Zoe Saldana,Sigourney Weaver
+The Avengers,2012,Action,Joss Whedon,Robert Downey Jr.,Chris Evans,Mark Ruffalo
+Interstellar,2014,Sci-Fi,Christopher Nolan,Matthew McConaughey,Anne Hathaway,Jessica Chastain
+The Lion King,1994,Animation,Rob Minkoff,Matthew Broderick,James Earl Jones,Jeremy Irons
+Saving Private Ryan,1998,War,Steven Spielberg,Tom Hanks,Matt Damon,Tom Sizemore
+The Silence of the Lambs,1991,Thriller,Jonathan Demme,Jodie Foster,Anthony Hopkins,Scott Glenn
+The Green Mile,1999,Drama,Frank Darabont,Tom Hanks,Michael Clarke Duncan,David Morse
+Schindler's List,1993,Drama,Steven Spielberg,Liam Neeson,Ralph Fiennes,Ben Kingsley
+Braveheart,1995,History,Mel Gibson,Mel Gibson,Sophie Marceau,Patrick McGoohan
+Django Unchained,2012,Western,Quentin Tarantino,Jamie Foxx,Christoph Waltz,Leonardo DiCaprio
+The Departed,2006,Crime,Martin Scorsese,Leonardo DiCaprio,Matt Damon,Jack Nicholson
+The Wolf of Wall Street,2013,Biography,Martin Scorsese,Leonardo DiCaprio,Jonah Hill,Margot Robbie
+The Social Network,2010,Biography,David Fincher,Jesse Eisenberg,Andrew Garfield,Justin Timberlake
+12 Years a Slave,2013,History,Steve McQueen,Chiwetel Ejiofor,Michael Fassbender,Lupita Nyong'o
+Black Panther,2018,Action,Ryan Coogler,Chadwick Boseman,Michael B. Jordan,Lupita Nyong'o
+The Prestige,2006,Drama,Christopher Nolan,Christian Bale,Hugh Jackman,Scarlett Johansson
+The Truman Show,1998,Drama,Peter Weir,Jim Carrey,Laura Linney,Ed Harris
+The Grand Budapest Hotel,2014,Comedy,Wes Anderson,Ralph Fiennes,F. Murray Abraham,Tony Revolori
+A Beautiful Mind,2001,Biography,Ron Howard,Russell Crowe,Jennifer Connelly,Paul Bettany
+The Big Short,2015,Comedy,Adam McKay,Christian Bale,Steve Carell,Ryan Gosling
+The Irishman,2019,Crime,Martin Scorsese,Robert De Niro,Al Pacino,Joe Pesci
+Joker,2019,Drama,Todd Phillips,Joaquin Phoenix,Robert De Niro,Zazie Beetz
+Parasite,2019,Thriller,Bong Joon-ho,Song Kang-ho,Lee Sun-kyun,Cho Yeo-jeong
+Mad Max: Fury Road,2015,Action,George Miller,Tom Hardy,Charlize Theron,Nicholas Hoult
+The Revenant,2015,Adventure,Alejandro G. Inarritu,Leonardo DiCaprio,Tom Hardy,Domhnall Gleeson
+Shutter Island,2010,Thriller,Martin Scorsese,Leonardo DiCaprio,Mark Ruffalo,Ben Kingsley
+Whiplash,2014,Drama,Damien Chazelle,Miles Teller,J.K. Simmons,Paul Reiser
+Birdman,2014,Comedy,Alejandro G. Inarritu,Michael Keaton,Zach Galifianakis,Edward Norton
+Gone Girl,2014,Thriller,David Fincher,Ben Affleck,Rosamund Pike,Neil Patrick Harris
+The Hateful Eight,2015,Western,Quentin Tarantino,Samuel L. Jackson,Kurt Russell,Jennifer Jason Leigh
+Get Out,2017,Horror,Jordan Peele,Daniel Kaluuya,Allison Williams,Bradley Whitford
+Knives Out,2019,Comedy,Rian Johnson,Daniel Craig,Chris Evans,Ana de Armas
+The Lighthouse,2019,Thriller,Robert Eggers,Robert Pattinson,Willem Dafoe,Valeriia Karaman
+Dune,2021,Sci-Fi,Dennis Villeneuve,Timothee Chalamet,Zendaya,Oscar Isaac
+No Time to Die,2021,Action,Cary Joji Fukunaga,Daniel Craig,Rami Malek,Lea Seydoux
+Tenet,2020,Sci-Fi,Christopher Nolan,John David Washington,Robert Pattinson,Elizabeth Debicki
+The Batman,2022,Action,Matt Reeves,Robert Pattinson,Zoe Kravitz,Paul Dano
+Encanto,2021,Animation,Jared Bush,Stephanie Beatriz,John Leguizamo,Diane Guerrero
+Frozen,2013,Animation,Chris Buck,Kristen Bell,Idina Menzel,Josh Gad
+Coco,2017,Animation,Lee Unkrich,Anthony Gonzalez,Gael Garcia Bernal,Benjamin Bratt
+Soul,2020,Animation,Pete Docter,Jamie Foxx,Tina Fey,Graham Norton
+Turning Red,2022,Animation,Domee Shi,Rosalie Chiang,Sandra Oh,Ava Morse
+Zootopia,2016,Animation,Byron Howard,Ginnifer Goodwin,Jason Bateman,Idris Elba
+Moana,2016,Animation,Ron Clements,Auli'i Cravalho,Dwayne Johnson,Rachel House
+Luca,2021,Animation,Enrico Casarosa,Jacob Tremblay,Jack Dylan Grazer,Emma Berman
+Lightyear,2022,Animation,Angus MacLane,Chris Evans,Keke Palmer,Peter Sohn
+Up,2009,Animation,Pete Docter,Ed Asner,Christopher Plummer,Jordan Nagai
+Wall-E,2008,Animation,Andrew Stanton,Ben Burtt,Elissa Knight,Jeff Garlin
+Finding Nemo,2003,Animation,Andrew Stanton,Albert Brooks,Ellen DeGeneres,Alexander Gould
+The Incredibles,2004,Animation,Brad Bird,Craig T. Nelson,Holly Hunter,Samuel L. Jackson
+Ratatouille,2007,Animation,Brad Bird,Patton Oswalt,Ian Holm,Lou Romano
+Brave,2012,Animation,Mark Andrews,Kelly Macdonald,Billy Connolly,Emma Thompson
+How to Train Your Dragon,2010,Animation,Dean DeBlois,Jay Baruchel,Gerard Butler,America Ferrera
+Despicable Me,2010,Animation,Pierre Coffin,Steve Carell,Jason Segel,Russell Brand
+Fasta Five,2011,Action,Justin Lin,Vin Diesel,Paul Walke,Jordana Brewster
