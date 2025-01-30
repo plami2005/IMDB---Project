@@ -1,7 +1,21 @@
+/**
+* Solution to course project # 6
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semedter 2023/2024
+* 
+* @author Plamena Kirilova Koleva
+* @idnumber 0MI0600423
+* @compiler VC
+* 
+* <file implementing software resembling IMDB>
+*/
+
 #include <iostream>
 #include <fstream>
 #include <cstring> // За работа с char масиви
-
+#include <limits>
+#include <ctime>
 
 const int MAX_FILMS = 200;
 const int MAX_TITLE_LENGTH = 50;
@@ -104,9 +118,55 @@ public:
         file.close();
     }
 
+
+    void getInput(const char* prompt, char* output, int maxLength) {
+        std::cout << prompt;
+        std::cin.ignore();
+        std::cin.getline(output, maxLength);
+    }
+
+    void editFilmDetails(Film& selectedFilm) {
+        int editChoice;
+        do {
+            std::cout << "\nEditing Film: " << selectedFilm.title << std::endl;
+            std::cout << "1. Edit Title\n2. Edit Year\n3. Edit Genre\n4. Edit Director\n";
+            std::cout << "5. Edit Actors\n6. Edit Rating\n7. Exit Editing\nEnter your choice: ";
+            std::cin >> editChoice;
+            std::cin.ignore();
+
+            switch (editChoice) {
+            case 1: getInput("Enter new title: ", selectedFilm.title, MAX_TITLE_LENGTH); break;
+            case 2:
+                std::cout << "Enter new year: ";
+                std::cin >> selectedFilm.year;
+                std::cin.ignore();
+                break;
+            case 3: getInput("Enter new genre: ", selectedFilm.genre, MAX_GENRE_LENGTH); break;
+            case 4: getInput("Enter new director: ", selectedFilm.director, MAX_NAME_LENGTH); break;
+            case 5:
+                for (int i = 0; i < MAX_ACTORS; ++i) {
+                    char prompt[30];
+                    sprintf_s(prompt, "Enter new actor %d: ", i + 1);
+                    getInput(prompt, selectedFilm.actors[i], MAX_NAME_LENGTH);
+                }
+                break;
+            case 6:
+                std::cout << "Enter new rating (total score): ";
+                std::cin >> selectedFilm.rating;
+                std::cout << "Enter new rating count: ";
+                std::cin >> selectedFilm.ratingCount;
+                std::cin.ignore();
+                break;
+            case 7: std::cout << "Exiting editing menu...\n"; return;
+            default: std::cout << "Invalid choice! Please try again.\n";
+            }
+            std::cout << "Update successful!\n";
+        } while (true);
+    }
+
     void editFilm() {
         if (filmCount == 0) {
-            std::cout << "No films available to edit." << std::endl;
+            std::cout << "No films available to edit.\n";
             return;
         }
 
@@ -116,106 +176,86 @@ public:
         std::cin >> choice;
 
         if (choice < 1 || choice > filmCount) {
-            std::cout << "Invalid choice!" << std::endl;
+            std::cout << "Invalid choice!\n";
             return;
         }
 
-        Film& selectedFilm = films[choice - 1]; // Избира избрания филм
-
-        int editChoice;
-        do {
-            std::cout << "\nEditing Film: " << selectedFilm.title << std::endl;
-            std::cout << "1. Edit Title" << std::endl;
-            std::cout << "2. Edit Year" << std::endl;
-            std::cout << "3. Edit Genre" << std::endl;
-            std::cout << "4. Edit Director" << std::endl;
-            std::cout << "5. Edit Actors" << std::endl;
-            std::cout << "6. Edit Rating" << std::endl;
-            std::cout << "7. Exit Editing" << std::endl;
-            std::cout << "Enter your choice: ";
-            std::cin >> editChoice;
-
-            std::cin.ignore(); // Изчиства буфера за въвеждане
-
-            switch (editChoice) {
-            case 1:
-                std::cout << "Enter new title: ";
-                std::cin.getline(selectedFilm.title, MAX_TITLE_LENGTH);
-                std::cout << "Title updated successfully!" << std::endl;
-                break;
-            case 2:
-                std::cout << "Enter new year: ";
-                std::cin >> selectedFilm.year;
-                std::cout << "Year updated successfully!" << std::endl;
-                break;
-            case 3:
-                std::cout << "Enter new genre: ";
-                std::cin.ignore();
-                std::cin.getline(selectedFilm.genre, MAX_GENRE_LENGTH);
-                std::cout << "Genre updated successfully!" << std::endl;
-                break;
-            case 4:
-                std::cout << "Enter new director: ";
-                std::cin.getline(selectedFilm.director, MAX_NAME_LENGTH);
-                std::cout << "Director updated successfully!" << std::endl;
-                break;
-            case 5:
-                for (int i = 0; i < MAX_ACTORS; ++i) {
-                    std::cout << "Enter new actor " << (i + 1) << ": ";
-                    std::cin.getline(selectedFilm.actors[i], MAX_NAME_LENGTH);
-                }
-                std::cout << "Actors updated successfully!" << std::endl;
-                break;
-            case 6:
-                std::cout << "Enter new rating (total score): ";
-                std::cin >> selectedFilm.rating;
-                std::cout << "Enter new rating count: ";
-                std::cin >> selectedFilm.ratingCount;
-                std::cout << "Rating updated successfully!" << std::endl;
-                break;
-            case 7:
-                std::cout << "Exiting editing menu..." << std::endl;
-                break;
-            default:
-                std::cout << "Invalid choice! Please try again." << std::endl;
-            }
-        } while (editChoice != 7);
+        editFilmDetails(films[choice - 1]);
     }
 
-    void addFilm() {
-        if (filmCount >= MAX_FILMS) {
-            std::cout << "Database is full! Cannot add more films." << std::endl;
-            return;
-        }
-        Film newFilm;
+    void getValidatedString(const char* prompt, char* output, int maxLength) {
+        do {
+            std::cout << prompt;
+            std::cin.getline(output, maxLength);
+
+            if (std::strlen(output) == 0) {
+                std::cout << "Input cannot be empty. Please try again.\n";
+            }
+        } while (std::strlen(output) == 0);
+    }
+
+    // Функция за въвеждане и валидация на годината
+    int getValidatedYear() {
+        int year;
+        int currentYear = std::time(nullptr) / 31556926 + 1970; // Изчислява текущата година
+
+        do {
+            std::cout << "Enter release year (1900 - " << currentYear << "): ";
+            std::cin >> year;
+            if (std::cin.fail() || year < 1900 || year > currentYear) {
+                std::cout << "Invalid year! Please enter a year between 1900 and " << currentYear << ".\n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
+            else {
+                break;
+            }
+        } while (true);
+
         std::cin.ignore();
-        std::cout << "Enter film title: ";
-        std::cin.getline(newFilm.title, MAX_TITLE_LENGTH);
-        std::cout << "Enter release year: ";
-        std::cin >> newFilm.year;
-        std::cin.ignore();
-        std::cout << "Enter genre: ";
-        std::cin.getline(newFilm.genre, MAX_GENRE_LENGTH);
-        std::cout << "Enter director: ";
-        std::cin.getline(newFilm.director, MAX_NAME_LENGTH);
-        for (int i = 0; i < MAX_ACTORS; ++i) {
-            std::cout << "Enter actor " << (i + 1) << ": ";
-            std::cin.getline(newFilm.actors[i], MAX_NAME_LENGTH);
-        }
-        films[filmCount++] = newFilm;
-        std::ofstream file("films.txt", std::ios::app); // Режим на добавяне
+        return year;
+    }
+
+    // Функция за записване на филм във файла
+    void saveFilmToFile(const Film& newFilm) {
+        std::ofstream file("films.txt", std::ios::app);
         if (!file) {
-            std::cerr << "Failed to open file for writing." << std::endl;
+            std::cerr << "Failed to open file for writing.\n";
             return;
         }
+
         file << newFilm.title << "," << newFilm.year << "," << newFilm.genre << "," << newFilm.director;
         for (int i = 0; i < MAX_ACTORS; ++i) {
             file << "," << newFilm.actors[i];
         }
         file << std::endl;
         file.close();
+    }
 
-        std::cout << "Film added successfully!" << std::endl;
+    // Основна функция за добавяне на филм
+    void addFilm() {
+        if (filmCount >= MAX_FILMS) {
+            std::cout << "Database is full! Cannot add more films.\n";
+            return;
+        }
+
+        Film newFilm;
+        std::cin.ignore();
+
+        getValidatedString("Enter film title: ", newFilm.title, MAX_TITLE_LENGTH);
+        newFilm.year = getValidatedYear();
+        getValidatedString("Enter genre: ", newFilm.genre, MAX_GENRE_LENGTH);
+        getValidatedString("Enter director: ", newFilm.director, MAX_NAME_LENGTH);
+
+        for (int i = 0; i < MAX_ACTORS; ++i) {
+            char prompt[50];
+            sprintf_s(prompt, "Enter actor %d: ", i + 1);
+            getValidatedString(prompt, newFilm.actors[i], MAX_NAME_LENGTH);
+        }
+
+        films[filmCount++] = newFilm;
+        saveFilmToFile(newFilm);
+        std::cout << "Film added successfully!\n";
     }
 
     void deleteFilm() {
@@ -444,10 +484,7 @@ int main() {
             }
         } while (choice != 8);
     }
-    else
-    {
-        std::cout << "Invalid choice. Please try again!" << std::endl;
-    }
+    
     //потребител
     if (userType == 2) { // Меню за обикновен потребител
         int choice;
@@ -484,8 +521,6 @@ int main() {
             case 7:
                 std::cout << "Exiting system..." << std::endl;
                 break;
-            default:
-                std::cout << "Invalid choise. Try again!" << std::endl;
             }
         } while (choice != 7);
     }
