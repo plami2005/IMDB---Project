@@ -13,7 +13,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <cstring> // За работа с char масиви
+#include <cstring> // char arrays
 #include <limits>
 #include <ctime>
 
@@ -22,9 +22,9 @@ const int MAX_TITLE_LENGTH = 50;
 const int MAX_GENRE_LENGTH = 20;
 const int MAX_NAME_LENGTH = 50;
 const int MAX_ACTORS = 3;
-//обект с име филм
+
 struct Film {
-    //променливи на филм
+    
     char title[MAX_TITLE_LENGTH];
     int year;
     char genre[MAX_GENRE_LENGTH];
@@ -32,7 +32,7 @@ struct Film {
     char actors[MAX_ACTORS][MAX_NAME_LENGTH];
     float rating;
     int ratingCount;
-    //конструктор
+
     Film() : year(0), rating(0), ratingCount(0) {
         memset(title, 0, MAX_TITLE_LENGTH);
         memset(genre, 0, MAX_GENRE_LENGTH);
@@ -51,9 +51,9 @@ private:
     void sortByTitle() {
         for (int i = 0; i < filmCount - 1; ++i) {
             for (int j = 0; j < filmCount - i - 1; ++j) {
-                // Сравняваме филмите по заглавие (лексикографски)
+                // lexicographic comparison
                 if (std::strcmp(films[j].title, films[j + 1].title) > 0) {
-                    // Разменяме местата на филмите
+                    // movie swap
                     Film temp = films[j];
                     films[j] = films[j + 1];
                     films[j + 1] = temp;
@@ -66,11 +66,11 @@ private:
     void sortByRating() {
         for (int i = 0; i < filmCount - 1; ++i) {
             for (int j = 0; j < filmCount - i - 1; ++j) {
-                // Изчисляваме средния рейтинг за текущите два филма
+                // Calculate the average rating for the current two movies
                 float ratingA = (films[j].ratingCount > 0 ? films[j].rating / films[j].ratingCount : 0);
                 float ratingB = (films[j + 1].ratingCount > 0 ? films[j + 1].rating / films[j + 1].ratingCount : 0);
 
-                // Ако рейтингът на текущия филм е по-нисък от този на следващия, разменяме местата им
+                // if the current movie's rating is lower than the next one's, we swap places
                 if (ratingA < ratingB) {
                     Film temp = films[j];
                     films[j] = films[j + 1];
@@ -194,10 +194,10 @@ public:
         } while (std::strlen(output) == 0);
     }
 
-    // Функция за въвеждане и валидация на годината
+   
     int getValidatedYear() {
         int year;
-        int currentYear = std::time(nullptr) / 31556926 + 1970; // Изчислява текущата година
+        int currentYear = std::time(nullptr) / 31556926 + 1970; // calculates the current year
 
         do {
             std::cout << "Enter release year (1900 - " << currentYear << "): ";
@@ -216,7 +216,7 @@ public:
         return year;
     }
 
-    // Функция за записване на филм във файла
+   
     void saveFilmToFile(const Film& newFilm) {
         std::ofstream file("films.txt", std::ios::app);
         if (!file) {
@@ -232,7 +232,7 @@ public:
         file.close();
     }
 
-    // Основна функция за добавяне на филм
+    
     void addFilm() {
         if (filmCount >= MAX_FILMS) {
             std::cout << "Database is full! Cannot add more films.\n";
@@ -275,7 +275,7 @@ public:
             films[i] = films[i + 1];
         }
         --filmCount;
-        std::ofstream file("films.txt", std::ios::trunc); // Отваря файла за презапис
+        std::ofstream file("films.txt", std::ios::trunc); //opens the file to be overwritten
         if (!file) {
             std::cerr << "Failed to open file for updating." << std::endl;
             return;
@@ -435,12 +435,12 @@ public:
 
 int main() {
     IMDBSystem imdb;
-    imdb.loadFilmsFromFile("films.txt"); // Зареждане на филмите от файла
+    imdb.loadFilmsFromFile("films.txt"); 
 
     int userType;
     std::cout << "Choose type user:\n1. Administrator\n2. Normal user\nYour choise: ";
     std::cin >> userType;
-    //администратор
+    //Administrator
     if (userType == 1) {
         int choice;
         do {
@@ -485,8 +485,8 @@ int main() {
         } while (choice != 8);
     }
     
-    //потребител
-    if (userType == 2) { // Меню за обикновен потребител
+    //Normal user
+    else if (userType == 2) { 
         int choice;
         do {
             std::cout << "\nUser menu:" << std::endl;
