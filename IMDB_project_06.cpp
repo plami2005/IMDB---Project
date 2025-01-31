@@ -37,7 +37,7 @@ Film films[MAX_FILMS];
 int filmCount = 0;
 
 
-// Функция за изчисляване на дължината на char масив 
+// Function to calculate the length of a char array
 int getLength(const char* str) {
     int length = 0;
     while (str[length] != '\0') {
@@ -46,17 +46,15 @@ int getLength(const char* str) {
     return length;
 }
 
-// Функция за въвеждане на валиден текст
+// Function for entering valid text
 void getValidatedString(const char* prompt, char* output, int maxLength) {
     do {
         std::cout << prompt;
         std::cin.getline(output, maxLength);
-
-        // Проверка дали низът е празен
         if (getLength(output) == 0) {
             std::cout << "Input cannot be empty! Try again.\n";
         }
-    } while (getLength(output) == 0); // Продължава докато не се въведе не-празен текст
+    } while (getLength(output) == 0);
 }
 
 
@@ -68,7 +66,7 @@ int getValidatedYear() {
         if (std::cin.fail() || year < 1900 || year > 2024) {
             std::cout << "Invalid year! Please enter a year between 1900 and 2024.\n";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// чисти буфера
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// Clears the input buffer
         }
         else {
             break;
@@ -109,7 +107,7 @@ void saveAllFilmsToFile() {
     file.close();
 }
 
-// Функции за обработка на филми
+
 void addFilm() {
     if (filmCount >= MAX_FILMS) {
         std::cout << "Database is full! Cannot add more films.\n";
@@ -167,17 +165,17 @@ void deleteFilm() {
     std::cout << "Film deleted successfully!\n";
 }
 
-// Функции за сортиране
+
 int compareStrings(const char* str1, const char* str2) {
     int i = 0;
     while (str1[i] != '\0' && str2[i] != '\0') {
-        if (str1[i] < str2[i]) return -1; // `str1` идва преди `str2`
-        if (str1[i] > str2[i]) return 1;  // `str1` идва след `str2`
+        if (str1[i] < str2[i]) return -1;
+        if (str1[i] > str2[i]) return 1; 
         i++;
     }
-    if (str1[i] == '\0' && str2[i] == '\0') return 0; // Равни
-    if (str1[i] == '\0') return -1; // `str1` е по-кратък -> идва първи
-    return 1; // `str2` е по-кратък -> идва първи
+    if (str1[i] == '\0' && str2[i] == '\0') return 0; 
+    if (str1[i] == '\0') return -1; 
+    return 1; 
 }
 
 void sortByTitle() {
@@ -207,7 +205,7 @@ void sortByRating() {
     }
 }
 
-// Функция за търсене на филм по жанр
+
 void searchByGenre() {
     if (filmCount == 0) {
         std::cout << "No movies found." << std::endl;
@@ -232,7 +230,7 @@ void searchByGenre() {
         std::cout << "No movies with this genre: \"" << genre << "\" found." << std::endl;
     }
 }
-// Функция за търсене на филм по заглавие
+// Function to search for a film by title
 bool containsSubstring(const char* text, const char* pattern) {
     int textLen = 0, patternLen = 0;
 
@@ -349,7 +347,7 @@ void editFilm() {
     } while (true);
 }
 
-// Функция за оценяване на филм
+// Function to rate a film
 void rateFilm() {
     if (filmCount == 0) {
         std::cout << "There aren't any movies to rate." << std::endl;
@@ -379,7 +377,7 @@ void rateFilm() {
         << "\" is: " << averageRating << std::endl;
 }
 
-// Функция за филтриране на филми по минимален рейтинг
+// Function to filter films by minimum rating
 void filterByRating() {
     if (filmCount == 0) {
         std::cout << "No films available.\n";
@@ -413,15 +411,15 @@ void loadFilmsFromFile(const char* fileName) {
         return;
     }
 
-    char line[256]; // Лимит за един ред
-    filmCount = 0;  // Нулираме броя на филмите
+    char line[256]; 
+    filmCount = 0; // Reset the film count
 
     while (file.getline(line, sizeof(line)) && filmCount < MAX_FILMS) {
         Film newFilm;
         char* next_token = nullptr;
         char* token = strtok_s(line, ",", &next_token);
 
-        if (!token) continue;  // Ако редът е празен, пропускаме
+        if (!token) continue;  // If the line is empty, skip it
 
         strncpy_s(newFilm.title, token, MAX_TITLE_LENGTH - 1);
 
@@ -462,13 +460,13 @@ void loadFilmsFromFile(const char* fileName) {
 
 
 int main() {
-    loadFilmsFromFile("films.txt");  // Зареждане на филмите от файла
+    loadFilmsFromFile("films.txt"); 
 
     int userType;
     std::cout << "Choose type of user:\n1. Administrator\n2. Normal user\nYour choice: ";
     std::cin >> userType;
 
-    if (userType == 1) {  // Меню за администратор
+    if (userType == 1) { // Administrator menu
         int choice;
         do {
             std::cout << "\nAdmin Menu:" << std::endl;
@@ -505,7 +503,7 @@ int main() {
         } while (choice != 8);
     }
 
-    else if (userType == 2) {  // Меню за нормален потребител
+    else if (userType == 2) { // Menu for normal user
         int choice;
         do {
             std::cout << "\nUser Menu:" << std::endl;
