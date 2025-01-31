@@ -1,0 +1,67 @@
+Input for administrator
+1
+1
+The substance
+2024
+Horror
+Coralie Fargeat
+Demi Moore
+Margaret Qualley
+Dennis Quaid
+3
+Drama
+4
+The
+5
+6
+66
+1
+ Substance
+2
+2001
+3
+ Drama
+4
+ Fargeat
+5
+ Moore
+ Qualley
+ Quaid
+6
+8
+1
+7
+7
+1
+7
+2
+2
+1
+8
+
+Input for user
+1
+2
+65
+8
+2
+65
+7
+3
+Drama
+4
+The
+5
+1
+5
+2
+2
+64
+6
+2
+63
+5
+6
+6
+7
+
